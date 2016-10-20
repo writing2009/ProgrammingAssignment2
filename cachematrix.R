@@ -24,28 +24,35 @@
 # Variables 
 # x - the matrix
 # y - the new matrix
-# i - the receptical
+# a - the receptical
 
 makeCacheMatrix <- function(x = matrix()) {
 
-# Create a invertion receptical for functions passed into this function (So much for dynamic assignment in R?)
-  i < - NULL
+# Create the initial invertion receptical object and assign a NULL
+
+  a < - NULL
   
 # Copy the functions being passed into the matrix into recepticals (Is this a MA rated function?)
 
   set <- function(y) {
     #(Is this a MA rated function?)
     x <<- y
-    i <<- NULL
+
+    # Assign the value inversion-receptical with a null the object different from the current environment
+    a <<- NULL
   }
   
-    
 # Create the matrix I am going to copy the values (ooh yah!)
   
-# Copy the values (Was it good for oui?)
+# Get the name of (0 to many) objects 
+  get <- function() x
   
-# 
+  setinverse <- function(inverse) a <<- inverse
+  getinverse <- function() a
   
+# Copy the objects (Was it good for oui?)
+  list (set=set, get=get, setinverse = setinverse, getinverse = getinverse)
+
 }
 
 ## Write a short comment describing this function
