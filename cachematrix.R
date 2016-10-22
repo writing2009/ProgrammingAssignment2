@@ -28,29 +28,30 @@
 
 makeCacheMatrix <- function(x = matrix()) {
 
-# Create the initial invertion receptical object and assign a NULL
+# Create the initial object and assign a NULL
+# Avoids unwaned NA object at begining of list
 
   a < - NULL
   
-# Copy the functions being passed into the matrix into recepticals (Is this a MA rated function?)
-
+# Setup an object for copying function objects
+# Create a global matric object X 
   set <- function(y) {
-    #(Is this a MA rated function?)
+    # x is is set to a global environment object outside the environment using the superassignment 
+    # operator to pass the y object 
     x <<- y
 
-    # Assign the value inversion-receptical with a null the object different from the current environment
-    a <<- NULL
+    # Create the initial object and assign a NULL
+    # Avoids unwaned NA object at begining of list
+      a <<- NULL
   }
   
-# Create the matrix I am going to copy the values (ooh yah!)
-  
-# Get the name of (0 to many) objects 
+# Create the matrix I am going to copy the values 
+# Create get object which has matrix and has the global object
   get <- function() x
-  
   setinverse <- function(inverse) a <<- inverse
   getinverse <- function() a
   
-# Copy the objects (Was it good for oui?)
+# Create a vector of objects 
   list (set=set, get=get, setinverse = setinverse, getinverse = getinverse)
 
 }
